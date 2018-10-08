@@ -1,3 +1,5 @@
+char val;
+
 void setup() {
   Serial.begin(9600);
   Serial3.begin(115200);
@@ -6,6 +8,13 @@ void setup() {
 }
 
 void loop() {
-  Serial3.print("[temp_1.32]");
-  delay(4000);
+  if( Serial3.available()>0){
+    val = Serial3.read();         // read it and store it in 'val'
+    Serial.print(val);
+  }else{
+    Serial.println("sending");
+    Serial3.print("[time_" + String(millis()/100) + "]");
+    delay(4000);
+  }
+  delay(10);
 }
