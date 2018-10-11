@@ -1,5 +1,5 @@
 
-#define NUM_SAMPLES 10
+#define NUM_SAMPLES 100
 
 int sum = 0;                    // sum of samples taken
 unsigned char sample_count = 0; // current sample number
@@ -20,7 +20,7 @@ void loop()
 
     voltage = ((float)sum / (float)NUM_SAMPLES * 5.015) / 1024.0;
 
-    Serial.print(voltage * 11.132);
+    Serial.print(voltage * 11);
     Serial.println (" V");
     sample_count = 0;
     sum = 0;
